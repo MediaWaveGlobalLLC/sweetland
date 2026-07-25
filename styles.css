@@ -1,0 +1,509 @@
+/* ============================================================
+   Sweet Land — hoja de estilo de marca
+   Paleta y lettering derivados del revamp visual 2026.
+   ============================================================ */
+
+/* ── Tokens ───────────────────────────────────────────────── */
+:root {
+  /* Marca */
+  --chicle:  #FF3D96;
+  --mango:   #FFC42E;
+  --pina:    #12BFAF;
+  --uva:     #7A2E9E;
+  --crema:   #FFF4E4;
+
+  /* Neutros con sesgo morado — elegidos, no heredados */
+  --tinta:      #2A1030;
+  --tinta-70:   #5A3D63;
+  --tinta-40:   #9880A0;
+
+  /* Superficies (tema claro) */
+  --fondo:      var(--crema);
+  --fondo-alt:  #FFFBF3;
+  --texto:      var(--tinta);
+  --texto-sec:  var(--tinta-70);
+  --borde:      #E8D8C4;
+  --placa:      #FDF1D9;
+  --sombra:     rgba(42, 16, 48, .16);
+
+  /* Tipografía */
+  --display: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --cuerpo:  system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --estrecha: "Avenir Next Condensed", "Roboto Condensed",
+              "Arial Narrow", var(--cuerpo);
+
+  /* Escala */
+  --e1: .5rem;  --e2: .875rem; --e3: 1.25rem;
+  --e4: 2rem;   --e5: 3.25rem; --e6: 5rem;
+
+  --radio: 18px;
+  --ancho: 1120px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo:     #190A20;
+    --fondo-alt: #210E2A;
+    --texto:     #FBEEDF;
+    --texto-sec: #C0A3C9;
+    --borde:     #3B1F47;
+    --placa:     #FDF1D9;
+    --sombra:    rgba(0, 0, 0, .5);
+  }
+}
+
+:root[data-theme="dark"] {
+  --fondo:     #190A20;
+  --fondo-alt: #210E2A;
+  --texto:     #FBEEDF;
+  --texto-sec: #C0A3C9;
+  --borde:     #3B1F47;
+  --placa:     #FDF1D9;
+  --sombra:    rgba(0, 0, 0, .5);
+}
+
+:root[data-theme="light"] {
+  --fondo:     #FFF4E4;
+  --fondo-alt: #FFFBF3;
+  --texto:     #2A1030;
+  --texto-sec: #5A3D63;
+  --borde:     #E8D8C4;
+  --placa:     #FDF1D9;
+  --sombra:    rgba(42, 16, 48, .16);
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--cuerpo);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--pina);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--uva); color: #fff;
+  padding: var(--e2) var(--e3); z-index: 99;
+}
+.skip:focus { left: var(--e3); top: var(--e3); }
+
+/* ── Piezas tipográficas compartidas ──────────────────────── */
+.eyebrow {
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .8125rem;
+  font-weight: 700;
+  color: var(--chicle);
+  margin: 0 0 var(--e2);
+}
+.eyebrow--light { color: var(--uva); }
+
+.titulo {
+  font-family: var(--display);
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+  font-size: clamp(1.9rem, 4.4vw, 3rem);
+  margin: 0 0 var(--e3);
+}
+.titulo--claro { color: var(--crema); }
+
+.bajada {
+  max-width: 56ch;
+  color: var(--texto-sec);
+  margin: 0;
+}
+
+/* ── Barra superior ───────────────────────────────────────── */
+.bar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--e3);
+  padding: var(--e1) var(--e3);
+  background: color-mix(in srgb, var(--fondo) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde);
+}
+/* El logotipo trae su propio fondo crema, así que se presenta como
+   pegatina deliberada — no como imagen recortada contra el tema. */
+.bar__mark {
+  display: block;
+  background: var(--placa);
+  border-radius: 10px;
+  padding: 6px 10px;
+  line-height: 0;
+}
+.bar__mark img { width: 92px; height: auto; }
+
+.bar__nav {
+  display: flex; gap: var(--e3);
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .8125rem;
+  font-weight: 700;
+}
+.bar__nav a { text-decoration: none; padding: var(--e1) 0; }
+.bar__nav a:hover { color: var(--chicle); }
+
+/* ── Portada ──────────────────────────────────────────────── */
+.portada {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3rem, 9vw, 6.5rem) var(--e3) clamp(3.5rem, 8vw, 5.5rem);
+  text-align: center;
+}
+
+/* Franjas diagonales: el lenguaje de las sedas del jinete y el de la
+   raya de caramelo son el mismo lenguaje. La portada se queda clara en
+   los dos temas — es un rótulo iluminado, no una superficie de lectura,
+   así que sus colores son fijos y no siguen al tema. */
+.portada__silks {
+  position: absolute; inset: -20% -10%;
+  transform: rotate(-8deg);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #FF86B5 0 72px,
+      transparent 72px 216px),
+    repeating-linear-gradient(
+      90deg,
+      #FFD777 108px 144px,
+      transparent 144px 288px),
+    repeating-linear-gradient(
+      90deg,
+      #71D4C4 180px 216px,
+      transparent 216px 432px),
+    #FFF4E4;
+}
+
+.portada__inner {
+  position: relative;
+  max-width: 780px;
+  margin-inline: auto;
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--e3);
+}
+.portada .eyebrow { margin-bottom: 0; }
+
+.placa {
+  background: var(--placa);
+  border-radius: var(--radio);
+  padding: clamp(1rem, 4vw, 2.25rem) clamp(1.25rem, 5vw, 3rem);
+  box-shadow: 0 18px 44px var(--sombra);
+  max-width: 620px;
+  width: 100%;
+  animation: entra .7s cubic-bezier(.2, .8, .3, 1) both;
+}
+.placa__logo { width: 100%; height: auto; }
+
+.lema {
+  margin: 0;
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: clamp(.8125rem, 2.2vw, 1rem);
+  font-weight: 700;
+  color: var(--uva);
+}
+
+.entrada {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+  color: var(--tinta);
+  text-wrap: pretty;
+}
+
+.acciones { display: flex; flex-wrap: wrap; gap: var(--e2); justify-content: center; }
+
+.btn {
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 700;
+  font-size: .875rem;
+  text-decoration: none;
+  padding: .85em 1.6em;
+  border-radius: 999px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn--chicle {
+  background: var(--chicle); color: #fff;
+  box-shadow: 0 6px 0 var(--uva);
+}
+.btn--chicle:hover { transform: translateY(-2px); box-shadow: 0 8px 0 var(--uva); }
+.btn--linea {
+  background: var(--placa); color: var(--uva);
+  box-shadow: 0 6px 0 rgba(122, 46, 158, .35);
+}
+.btn--linea:hover { transform: translateY(-2px); }
+
+@keyframes entra {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Cinta corrediza ──────────────────────────────────────── */
+.cinta {
+  background: var(--uva);
+  color: var(--crema);
+  overflow: hidden;
+  padding: var(--e2) 0;
+  border-block: 3px solid var(--chicle);
+}
+.cinta__pista {
+  display: flex; width: max-content;
+  animation: corre 34s linear infinite;
+}
+.cinta__grupo {
+  display: flex; align-items: center; gap: var(--e3);
+  padding-right: var(--e3);
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .875rem;
+  white-space: nowrap;
+}
+.cinta__grupo b { font-weight: 700; }
+.cinta__grupo i { color: var(--mango); font-style: normal; }
+
+@keyframes corre {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* La barra es sticky: los destinos de ancla se separan para no
+   quedar por debajo de ella al saltar desde el menú. */
+[id] { scroll-margin-top: 6rem; }
+
+/* ── Bloques de contenido ─────────────────────────────────── */
+.bloque {
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding: clamp(3.5rem, 8vw, var(--e6)) var(--e3);
+}
+.bloque--angosto { max-width: 900px; }
+
+.bloque__cabeza { margin-bottom: var(--e4); }
+
+/* ── Sedas: tarjetas de color macizo ──────────────────────── */
+.silks {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: var(--e3);
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+}
+
+/* Tinta morada sobre los tres colores claros, crema sobre el morado:
+   la misma inversión que hace el logotipo, y la única combinación que
+   pasa contraste AA en las cuatro tarjetas. */
+.silk {
+  border-radius: var(--radio);
+  padding: var(--e3) var(--e3) var(--e4);
+  background: var(--chicle);
+  color: var(--tinta);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.silk::after {
+  content: "";
+  position: absolute; inset: auto -30% -55% -30%;
+  height: 130px;
+  background: rgba(255, 255, 255, .3);
+  transform: rotate(-8deg);
+  z-index: -1;
+}
+.silk:hover { transform: translateY(-5px); box-shadow: 0 16px 34px var(--sombra); }
+
+.silk h3 {
+  font-family: var(--display);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  font-size: 1.5rem;
+  margin: 0 0 var(--e1);
+}
+.silk p { margin: 0; font-size: .9688rem; line-height: 1.6; }
+
+.silk--pina  { background: var(--pina); }
+.silk--mango { background: var(--mango); }
+.silk--uva   { background: var(--uva); color: var(--crema); }
+.silk--uva::after { background: rgba(255, 255, 255, .12); }
+
+/* ── Empaques ─────────────────────────────────────────────── */
+.empaques {
+  background: var(--fondo-alt);
+  border-block: 1px solid var(--borde);
+  display: grid;
+  gap: clamp(2rem, 5vw, var(--e5));
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: clamp(3.5rem, 8vw, var(--e6)) var(--e3);
+}
+@media (min-width: 900px) {
+  .empaques {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    max-width: var(--ancho);
+    margin-inline: auto;
+    border-inline: 1px solid var(--borde);
+    border-radius: var(--radio);
+  }
+}
+
+.empaques__foto { margin: 0; }
+.empaques__foto img {
+  border-radius: var(--radio);
+  box-shadow: 0 20px 48px var(--sombra);
+}
+.empaques__texto p { color: var(--texto-sec); max-width: 54ch; }
+
+.ficha {
+  margin: var(--e4) 0 0;
+  display: grid; gap: var(--e2);
+  border-top: 2px solid var(--borde);
+  padding-top: var(--e3);
+}
+.ficha > div {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: var(--e2);
+  align-items: baseline;
+}
+.ficha dt {
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--chicle);
+}
+.ficha dd { margin: 0; font-size: .9375rem; }
+
+/* ── Paleta ───────────────────────────────────────────────── */
+.paleta {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: var(--e3);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.paleta li { display: flex; flex-direction: column; gap: var(--e1); }
+.muestra {
+  display: block; height: 88px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px var(--sombra);
+}
+.muestra--borde { border: 1px solid var(--borde); }
+.paleta b { font-size: .9375rem; }
+.paleta code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .8125rem;
+  color: var(--texto-sec);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Visítanos ────────────────────────────────────────────── */
+.visita {
+  background: var(--uva);
+  padding: clamp(3.5rem, 8vw, var(--e6)) var(--e3);
+}
+.visita .eyebrow--light { color: var(--mango); }
+.visita__inner { max-width: 760px; margin-inline: auto; }
+
+.programa {
+  margin: 0;
+  border-top: 2px solid rgba(255, 244, 228, .3);
+}
+.programa__fila {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: var(--e2);
+  padding: var(--e3) 0;
+  border-bottom: 1px solid rgba(255, 244, 228, .18);
+  align-items: baseline;
+}
+@media (max-width: 560px) {
+  .programa__fila { grid-template-columns: 1fr; gap: var(--e1); }
+}
+.programa dt {
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--mango);
+}
+.programa dd { margin: 0; color: var(--crema); font-size: 1.0625rem; }
+.programa dd a { color: var(--crema); text-decoration-color: var(--chicle); }
+
+.pendiente {
+  display: inline-block;
+  border: 1px dashed rgba(255, 244, 228, .5);
+  border-radius: 8px;
+  padding: .15em .7em;
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .8125rem;
+  color: rgba(255, 244, 228, .72) !important;
+}
+
+.nota {
+  margin: var(--e3) 0 0;
+  font-size: .875rem;
+  color: rgba(255, 244, 228, .66);
+  max-width: 52ch;
+}
+.nota em { color: var(--mango); font-style: normal; }
+
+/* ── Pie ──────────────────────────────────────────────────── */
+.pie {
+  text-align: center;
+  padding: clamp(2.5rem, 6vw, var(--e5)) var(--e3);
+  display: flex; flex-direction: column; align-items: center; gap: var(--e2);
+}
+.pie img {
+  width: 150px;
+  background: var(--placa);
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+.pie__lema {
+  margin: 0;
+  font-family: var(--estrecha);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-size: .8125rem;
+  font-weight: 700;
+  color: var(--chicle);
+}
+.pie__legal {
+  margin: 0; max-width: 46ch;
+  font-size: .8125rem; color: var(--texto-sec);
+}
+
+/* ── Movimiento reducido ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .cinta__pista { animation: none; }
+}
