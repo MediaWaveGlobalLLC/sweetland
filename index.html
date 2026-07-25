@@ -3,214 +3,314 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sweet Land — Puerto Rican Candy Shop · Hipódromo Camarero</title>
-<meta name="description" content="Candy shop en el Hipódromo Camarero, Canóvanas. Pilones, gomitas, limbers, besitos de coco y chucherías importadas.">
-<link rel="stylesheet" href="styles.css">
+<title>SweetLand — Menú y precios · Hipódromo Camarero, Canóvanas</title>
+<meta name="description" content="Menú y precios del kiosco SweetLand en el Hipódromo Camarero, Canóvanas: popcorn, nachos, hot dog, piraguas, mantecados, frappé y café. WhatsApp 939-777-0122.">
+<meta name="theme-color" content="#E01B6A">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SweetLand — Menú y precios">
+<meta property="og:description" content="Popcorn, nachos, piraguas, mantecados y café en el Hipódromo Camarero, Canóvanas.">
+<meta property="og:image" content="assets/comida.jpg">
+<meta property="og:locale" content="es_PR">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="icon" href="assets/logo.png">
+<link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<a class="skip" href="#surtido">Ir al contenido</a>
+<a class="saltar" href="#menu">Ir al menú</a>
 
-<header class="bar">
-  <a class="bar__mark" href="#top">
-    <img src="assets/logo.png" alt="Sweet Land" width="120" height="82">
+<header class="barra">
+  <a class="barra__marca" href="#inicio" aria-label="SweetLand, inicio">
+    <img src="assets/logo.png" alt="" width="92" height="63">
   </a>
-  <nav class="bar__nav" aria-label="Principal">
-    <a href="#surtido">Surtido</a>
-    <a href="#empaques">Empaques</a>
-    <a href="#visitanos">Visítanos</a>
+  <nav class="barra__nav" aria-label="Principal">
+    <a href="#menu">Menú</a>
+    <a href="#visitanos">Dónde estamos</a>
   </nav>
+  <a class="wa wa--chico" href="https://wa.me/17877770122" rel="noopener">
+    <svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="m187.58 144.84l-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40a88.1 88.1 0 0 0 88 88a40 40 0 0 0 40-40a8 8 0 0 0-4.42-7.16M152 176a72.08 72.08 0 0 1-72-72a24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51a56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74l23 11.48A24 24 0 0 1 152 176M128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24m0 192a87.87 87.87 0 0 1-44.06-11.81a8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216"/></svg>
+    <span>939-777-0122</span>
+  </a>
 </header>
 
-<main id="top">
+<main id="inicio">
 
   <!-- ── Portada ─────────────────────────────────────────────── -->
   <section class="portada">
-    <div class="portada__silks" aria-hidden="true"></div>
+    <div class="portada__tinte" aria-hidden="true"></div>
 
     <div class="portada__inner">
-      <p class="eyebrow eyebrow--light">Hipódromo Camarero · Canóvanas, PR</p>
+      <p class="chapa">Hipódromo Camarero · Canóvanas</p>
 
-      <div class="placa">
-        <img class="placa__logo" src="assets/logo.png"
-             alt="Sweet Land — logotipo en lettering tipo caramelo"
-             width="720" height="490">
-      </div>
+      <h1 class="marca"><img src="assets/logo.png" alt="SweetLand" width="720" height="491"></h1>
 
-      <p class="lema">Puerto Rican Candy Shop</p>
+      <p class="grito">Popcorn, piraguas<br>y mantecados<br><em>frente a la pista</em></p>
 
-      <p class="entrada">
-        Un mostrador de dulces frente a la pista. Pilones de los de antes,
-        gomitas por libra, limbers para el calor y las chucherías que
-        solo se consiguen aquí.
-      </p>
-
-      <div class="acciones">
-        <a class="btn btn--chicle" href="#surtido">Ver el surtido</a>
-        <a class="btn btn--linea" href="#visitanos">Cómo llegar</a>
+      <div class="portada__acciones">
+        <a class="boton" href="#menu">Ver el menú</a>
+        <a class="wa wa--claro" href="https://wa.me/17877770122" rel="noopener">
+          <svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="m187.58 144.84l-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40a88.1 88.1 0 0 0 88 88a40 40 0 0 0 40-40a8 8 0 0 0-4.42-7.16M152 176a72.08 72.08 0 0 1-72-72a24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51a56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74l23 11.48A24 24 0 0 1 152 176M128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24m0 192a87.87 87.87 0 0 1-44.06-11.81a8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216"/></svg>
+          <span>WhatsApp</span>
+        </a>
       </div>
     </div>
+
+    <figure class="bandeja">
+      <img src="assets/comida.jpg"
+           alt="Popcorn, nachos con queso, hot dog, piragua, mantecado, frappé y café sobre un mostrador azul cielo"
+           width="1600" height="893" fetchpriority="high">
+    </figure>
   </section>
 
   <!-- ── Cinta ───────────────────────────────────────────────── -->
   <div class="cinta" aria-hidden="true">
     <div class="cinta__pista">
-      <span class="cinta__grupo">
-        <b>Pilones</b><i>·</i><b>Gomitas</b><i>·</i><b>Algodón de azúcar</b><i>·</i><b>Limbers</b><i>·</i><b>Besitos de coco</b><i>·</i><b>Dulce de coco</b><i>·</i><b>Chocolates</b><i>·</i><b>Chucherías importadas</b><i>·</i>
-      </span>
-      <span class="cinta__grupo">
-        <b>Pilones</b><i>·</i><b>Gomitas</b><i>·</i><b>Algodón de azúcar</b><i>·</i><b>Limbers</b><i>·</i><b>Besitos de coco</b><i>·</i><b>Dulce de coco</b><i>·</i><b>Chocolates</b><i>·</i><b>Chucherías importadas</b><i>·</i>
-      </span>
+      <span class="cinta__grupo"><b>Popcorn</b><i>★</i><b>Nachos</b><i>★</i><b>Algodón de azúcar</b><i>★</i><b>Hot dog</b><i>★</i><b>Fresa con crema</b><i>★</i><b>Piña colada</b><i>★</i><b>Frappé</b><i>★</i><b>Piragua</b><i>★</i><b>Mantecados</b><i>★</i><b>Café</b><i>★</i></span>
+      <span class="cinta__grupo"><b>Popcorn</b><i>★</i><b>Nachos</b><i>★</i><b>Algodón de azúcar</b><i>★</i><b>Hot dog</b><i>★</i><b>Fresa con crema</b><i>★</i><b>Piña colada</b><i>★</i><b>Frappé</b><i>★</i><b>Piragua</b><i>★</i><b>Mantecados</b><i>★</i><b>Café</b><i>★</i></span>
     </div>
   </div>
 
-  <!-- ── Surtido ─────────────────────────────────────────────── -->
-  <section class="bloque" id="surtido">
-    <div class="bloque__cabeza">
-      <p class="eyebrow">El surtido</p>
-      <h2 class="titulo">Lo que hay en el mostrador</h2>
-      <p class="bajada">
-        Seis familias fijas. El resto rota según lo que llegue y según el
-        evento que tenga el hipódromo ese fin de semana.
-      </p>
+  <!-- ── Menú ────────────────────────────────────────────────── -->
+  <section class="menu" id="menu">
+    <div class="menu__cabeza">
+      <h2 class="titulo">El menú</h2>
+      <p class="menu__ivu">Trece renglones, en el mismo orden del kiosco.
+        Todos los precios son <strong>antes de IVU</strong>.</p>
     </div>
 
-    <ul class="silks">
-      <li class="silk silk--chicle">
-        <h3>Pilones</h3>
-        <p>El clásico boricua: disco duro, mango de palito, colores que
-           manchan la lengua. Surtido por sabor y tamaño gigante para foto.</p>
+    <ol class="lista">
+
+      <li class="fila" data-ver>
+        <span class="fila__num">1</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Popcorn</h3>
+          <dl class="variantes">
+            <div><dt>Pequeño</dt><dd>$3.15</dd></div>
+            <div><dt>Mediano</dt><dd>$4.20</dd></div>
+            <div><dt>Grande</dt><dd>$5.60</dd></div>
+          </dl>
+        </div>
       </li>
-      <li class="silk silk--pina">
-        <h3>Gomitas</h3>
-        <p>Por libra, del dispensador. Ácidas, dulces, de fruta, de cola,
-           y las de pica que aguantan a cualquiera.</p>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">2</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Nachos</h3>
+          <dl class="variantes">
+            <div><dt>Sencillos</dt><dd>$6.30</dd></div>
+            <!-- El menú impreso escribe estos dos añadidos con signo de euro
+                 (.93€). Se asume $0.93. Confirmar con el negocio. -->
+            <div><dt>Con bacón</dt><dd class="mas">+$0.93</dd></div>
+            <div><dt>Queso extra</dt><dd class="mas">+$0.93</dd></div>
+          </dl>
+        </div>
       </li>
-      <li class="silk silk--mango">
-        <h3>Algodón de azúcar</h3>
-        <p>Hecho al momento. Cono grande, colores de la casa, y bolsas
-           selladas para llevar a la casa sin que se desinfle.</p>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">3</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Algodón de azúcar</h3>
+          <dl class="variantes"><div><dt>Unidad</dt><dd>$3.50</dd></div></dl>
+        </div>
       </li>
-      <li class="silk silk--uva">
-        <h3>Limbers</h3>
-        <p>De coco, de parcha, de tamarindo. Lo que salva el mediodía en
-           Canóvanas cuando pega el sol de verdad.</p>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">4</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Hot dog</h3>
+          <dl class="variantes"><div><dt>Unidad</dt><dd>$4.00</dd></div></dl>
+        </div>
       </li>
-      <li class="silk silk--pina">
-        <h3>Dulces típicos</h3>
-        <p>Besitos de coco, dulce de coco, dulce de leche. Lo de siempre,
-           bien hecho, empacado para regalo.</p>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">5</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Snack</h3>
+          <dl class="variantes"><div><dt>Unidad</dt><dd>$1.50</dd></div></dl>
+        </div>
       </li>
-      <li class="silk silk--chicle">
-        <h3>Importados</h3>
-        <p>Chucherías que no están en el colmado: ediciones de afuera,
-           sabores raros y lo que pide la gente por Instagram.</p>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">6</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Fresa con crema</h3>
+          <dl class="variantes">
+            <div><dt>Sencilla</dt><dd>$10.00</dd></div>
+            <div><dt>Con Nutella</dt><dd>$11.50</dd></div>
+          </dl>
+        </div>
       </li>
-    </ul>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">7</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Piña colada</h3>
+          <!-- Precio parcialmente tapado por reflejo en la foto del menú.
+               Leído como $6.00. Confirmar con el negocio. -->
+          <dl class="variantes"><div><dt>Vaso</dt><dd>$6.00</dd></div></dl>
+        </div>
+      </li>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">8</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Frappé</h3>
+          <dl class="variantes"><div><dt>Vaso</dt><dd>$6.00</dd></div></dl>
+        </div>
+      </li>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">9</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Piragua</h3>
+          <!-- El menú impreso da dos precios sin decir el tamaño de cada uno.
+               Se listan ambos sin asumir. Confirmar con el negocio. -->
+          <dl class="variantes">
+            <div><dt>Dos precios</dt><dd>$4.20 · $5.00</dd></div>
+          </dl>
+        </div>
+      </li>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">10</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Mantecados</h3>
+          <dl class="variantes">
+            <div><dt>Pequeño</dt><dd>$3.60</dd></div>
+            <div><dt>Grande</dt><dd>$5.50</dd></div>
+          </dl>
+        </div>
+      </li>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">11</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Refrescos</h3>
+          <dl class="variantes"><div><dt>Lata</dt><dd>$2.34</dd></div></dl>
+        </div>
+      </li>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">12</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Agua</h3>
+          <dl class="variantes"><div><dt>Botella</dt><dd>$1.50</dd></div></dl>
+        </div>
+      </li>
+
+      <li class="fila" data-ver>
+        <span class="fila__num">13</span>
+        <div class="fila__cuerpo">
+          <h3 class="fila__nombre">Café</h3>
+          <!-- Igual que la piragua: dos precios sin tamaño. Confirmar. -->
+          <dl class="variantes">
+            <div><dt>Dos precios</dt><dd>$2.24 · $3.25</dd></div>
+          </dl>
+        </div>
+      </li>
+
+    </ol>
   </section>
 
-  <!-- ── Empaques ────────────────────────────────────────────── -->
-  <section class="empaques" id="empaques">
-    <figure class="empaques__foto">
-      <img src="assets/empaques.jpg"
-           alt="Bolsa de kraft con ventana llena de gomitas y caja cuadrada, ambas con el logotipo Sweet Land, rodeadas de dulces de colores"
-           width="900" height="1117" loading="lazy">
-    </figure>
-
-    <div class="empaques__texto">
-      <p class="eyebrow">Empaque</p>
-      <h2 class="titulo">Kraft por fuera, escándalo por dentro</h2>
-      <p>
-        El empaque va en cartón kraft sin blanquear y el color lo pone el
-        dulce. La bolsa lleva ventana: se ve lo que estás comprando antes
-        de abrirla, y se ve bien en una mesa de cumpleaños.
-      </p>
-      <p>
-        El logotipo va estampado en rosa chicle y turquesa piña, y el
-        sello circular cierra la bolsa. Dos piezas, nada más — así el
-        empaque cuesta poco y se reconoce de lejos.
-      </p>
-
-      <dl class="ficha">
-        <div><dt>Formatos</dt><dd>Bolsa con ventana · Caja cuadrada · Cono</dd></div>
-        <div><dt>Cierre</dt><dd>Sello circular troquelado</dd></div>
-        <div><dt>Tintas</dt><dd>Rosa chicle · Turquesa piña</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- ── Paleta ──────────────────────────────────────────────── -->
-  <section class="bloque bloque--angosto">
-    <div class="bloque__cabeza">
-      <p class="eyebrow">Sistema de color</p>
-      <h2 class="titulo">Cinco colores, sin excepciones</h2>
-      <p class="bajada">
-        Toda pieza de Sweet Land — rótulo, bolsa, post, uniforme — sale de
-        esta paleta. Nada apagado, nada fuera de lista.
-      </p>
-    </div>
-
-    <ul class="paleta">
-      <li><span class="muestra" style="background:#FF3D96"></span>
-        <b>Rosa chicle</b><code>#FF3D96</code></li>
-      <li><span class="muestra" style="background:#FFC42E"></span>
-        <b>Amarillo mango</b><code>#FFC42E</code></li>
-      <li><span class="muestra" style="background:#12BFAF"></span>
-        <b>Turquesa piña</b><code>#12BFAF</code></li>
-      <li><span class="muestra" style="background:#7A2E9E"></span>
-        <b>Morado uva</b><code>#7A2E9E</code></li>
-      <li><span class="muestra muestra--borde" style="background:#FFF4E4"></span>
-        <b>Crema</b><code>#FFF4E4</code></li>
-    </ul>
-  </section>
-
-  <!-- ── Visítanos ───────────────────────────────────────────── -->
+  <!-- ── Dónde estamos ───────────────────────────────────────── -->
   <section class="visita" id="visitanos">
-    <div class="visita__inner">
-      <p class="eyebrow eyebrow--light">Visítanos</p>
-      <h2 class="titulo titulo--claro">Estamos en el Hipódromo</h2>
-
-      <dl class="programa">
-        <div class="programa__fila">
-          <dt>Dirección</dt>
-          <dd>Hipódromo Camarero<br>Canóvanas, Puerto Rico</dd>
-        </div>
-        <div class="programa__fila">
-          <dt>Días de carrera</dt>
-          <dd class="pendiente">Por confirmar</dd>
-        </div>
-        <div class="programa__fila">
-          <dt>Horario</dt>
-          <dd class="pendiente">Por confirmar</dd>
-        </div>
-        <div class="programa__fila">
-          <dt>Teléfono</dt>
-          <dd class="pendiente">Por confirmar</dd>
-        </div>
-        <div class="programa__fila">
-          <dt>Instagram</dt>
-          <dd><a href="https://instagram.com/sweetlandpr1" rel="noopener">@sweetlandpr1</a></dd>
-        </div>
-      </dl>
-
-      <p class="nota">
-        Los campos marcados <em>Por confirmar</em> son marcadores de posición
-        a la espera de los datos reales del negocio.
+    <div class="visita__cabeza">
+      <p class="chapa chapa--sobre">Búscanos</p>
+      <h2 class="titulo titulo--claro">Así se ve el kiosco</h2>
+      <p class="visita__lede">
+        Dentro del Hipódromo Camarero, en Canóvanas. Estamos bajo la
+        gradería, cerca de la salida. Si buscas los rótulos rosa y azul,
+        llegaste.
       </p>
     </div>
+
+    <div class="galeria">
+      <figure class="galeria__grande">
+        <img src="assets/kiosco-0777.jpg"
+             alt="Vista completa del kiosco SweetLand bajo la gradería del hipódromo, con el mostrador largo en rosa y azul"
+             width="1600" height="1200" loading="lazy">
+      </figure>
+      <figure>
+        <img src="assets/kiosco-0776.jpg"
+             alt="Mostrador de SweetLand con los rótulos de Popcorn e Ice Cream y clientes ordenando"
+             width="1600" height="1200" loading="lazy">
+      </figure>
+      <figure>
+        <img src="assets/kiosco-0778.jpg"
+             alt="El kiosco visto desde el pasillo, junto al letrero de salida del hipódromo"
+             width="1600" height="1200" loading="lazy">
+      </figure>
+    </div>
+
+    <dl class="datos">
+      <div class="datos__fila">
+        <dt>
+          <svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M128 64a40 40 0 1 0 40 40a40 40 0 0 0-40-40m0 64a24 24 0 1 1 24-24a24 24 0 0 1-24 24m0-112a88.1 88.1 0 0 0-88 88c0 31.4 14.51 64.68 42 96.25a254.2 254.2 0 0 0 41.45 38.3a8 8 0 0 0 9.18 0a254.2 254.2 0 0 0 41.37-38.3c27.45-31.57 42-64.85 42-96.25a88.1 88.1 0 0 0-88-88m0 206c-16.53-13-72-60.75-72-118a72 72 0 0 1 144 0c0 57.23-55.47 105-72 118"/></svg>
+          Dirección
+        </dt>
+        <dd>Hipódromo Camarero, Canóvanas, Puerto Rico</dd>
+      </div>
+      <div class="datos__fila">
+        <dt>
+          <svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="m187.58 144.84l-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40a88.1 88.1 0 0 0 88 88a40 40 0 0 0 40-40a8 8 0 0 0-4.42-7.16M152 176a72.08 72.08 0 0 1-72-72a24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51a56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74l23 11.48A24 24 0 0 1 152 176M128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24m0 192a87.87 87.87 0 0 1-44.06-11.81a8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216"/></svg>
+          WhatsApp
+        </dt>
+        <dd><a href="https://wa.me/17877770122" rel="noopener">939-777-0122</a></dd>
+      </div>
+      <div class="datos__fila">
+        <dt>
+          <svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M128 40a88 88 0 1 0 88 88a88.1 88.1 0 0 0-88-88m0 160a72 72 0 1 1 72-72a72.08 72.08 0 0 1-72 72m64-72a8 8 0 0 1-8 8h-56a8 8 0 0 1-8-8V72a8 8 0 0 1 16 0v48h48a8 8 0 0 1 8 8"/></svg>
+          Horario
+        </dt>
+        <dd class="dato--falta">Falta confirmar</dd>
+      </div>
+      <div class="datos__fila">
+        <dt>Redes</dt>
+        <dd>
+          <a href="https://instagram.com/sweetlandpr1" rel="noopener">@SweetLandpr1</a>
+          <span class="sep">·</span>
+          <a href="https://facebook.com/SweetLandpr1" rel="noopener">Facebook</a>
+        </dd>
+      </div>
+    </dl>
   </section>
 
 </main>
 
 <footer class="pie">
-  <img src="assets/logo.png" alt="" width="150" height="102" aria-hidden="true">
-  <p class="pie__lema">Puerto Rican Candy Shop · Canóvanas, PR</p>
-  <p class="pie__legal">
-    Sitio conceptual de revamp de marca. Assets de marca generados para
-    propuesta — no son arte final de producción.
+  <p class="pie__marca">SweetLand</p>
+  <p class="pie__meta">Hipódromo Camarero, Canóvanas, PR · WhatsApp 939-777-0122</p>
+  <p class="pie__nota">
+    Precios transcritos del menú del kiosco. Sujetos a cambio; el menú
+    impreso manda.
   </p>
 </footer>
+
+<script>
+  // Revelado al hacer scroll. Si el sistema pide menos movimiento,
+  // se muestra todo de una vez y no se observa nada.
+  (function () {
+    var quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var filas = document.querySelectorAll('[data-ver]');
+    if (quieto || !('IntersectionObserver' in window)) {
+      filas.forEach(function (f) { f.classList.add('visible'); });
+      return;
+    }
+    var ojo = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e, i) {
+        if (!e.isIntersecting) return;
+        e.target.style.transitionDelay = (i * 45) + 'ms';
+        e.target.classList.add('visible');
+        ojo.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .15 });
+    filas.forEach(function (f) { ojo.observe(f); });
+  })();
+</script>
 
 </body>
 </html>

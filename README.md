@@ -1,40 +1,68 @@
-# Sweet Land — sitio de marca
+# SweetLand — sitio del kiosco
 
-Landing conceptual para **Sweet Land**, candy shop en el Hipódromo Camarero,
-Canóvanas, Puerto Rico. Construida sobre el revamp visual de 2026.
+Sitio del kiosco **SweetLand**, dentro del Hipódromo Camarero en Canóvanas,
+Puerto Rico. Muestra el menú real con precios y cómo llegar.
 
-Sitio estático: HTML y CSS, sin build ni dependencias.
+Estático: HTML, CSS y un script de doce líneas. Sin build, sin dependencias.
 
 ## Estructura
 
 ```
-index.html            Página completa
-styles.css            Sistema de diseño (tokens + componentes)
-assets/logo.png       Logotipo — lettering tipo caramelo
-assets/empaques.jpg   Fotografía de empaque
+index.html               Página completa
+styles.css               Sistema de diseño (tokens + componentes)
+assets/logo.png          Logotipo propuesto (lettering tipo caramelo)
+assets/comida.jpg        Bodegón de producto para la portada
+assets/kiosco-*.jpg      Fotos reales del kiosco, para ubicarse
+assets/fonts/*.woff2     Bricolage Grotesque y Geist, auto-alojadas
 ```
 
-## Sistema de diseño
+## Diseño
 
-**Color** — cinco valores fijos, definidos como custom properties en `:root`.
-Los neutros llevan sesgo morado a propósito; no son grises puros.
+**Color.** Los tres colores salen de los rótulos del propio kiosco, no de
+una paleta inventada: magenta (`#E01B6A`), azul cielo (`#4FC3E8`) y amarillo
+mango (`#FFC42E`), sobre tinta morada (`#24103A`). Se extrajeron por
+cuantización de matiz de las fotos del local.
 
-| Token      | Hex       | Uso                          |
-|------------|-----------|------------------------------|
-| `--chicle` | `#FF3D96` | Acento principal, botones    |
-| `--mango`  | `#FFC42E` | Realces, etiquetas sobre uva |
-| `--pina`   | `#12BFAF` | Secundario, foco de teclado  |
-| `--uva`    | `#7A2E9E` | Fondos densos, tinta         |
-| `--crema`  | `#FFF4E4` | Fondo base                   |
+**Tipografía.** Bricolage Grotesque para display y Geist para texto, ambas
+auto-alojadas en `assets/fonts/` con `font-display: swap`. Sin CDN de
+fuentes.
 
-**Tipografía** — tres roles: display (900, versalitas, tracking negativo),
-cuerpo, y una condensada en mayúsculas con tracking abierto para etiquetas.
-No se cargan webfonts: el CSP de despliegue bloquea CDNs de fuentes y una
-fuente que no carga es peor que una pila de sistema bien elegida.
+**Iconos.** Phosphor, obtenidos con `better-icons`. Solo se usan donde el
+icono es exacto (WhatsApp, pin de mapa, reloj). No hay iconos por renglón
+del menú porque Phosphor no tiene algodón de azúcar, frappé ni fresa con
+crema, y forzar un `hamburger` para el hot dog es peor que no poner nada.
 
-**Tema** — claro y oscuro. La preferencia del sistema entra por
-`prefers-color-scheme`; `data-theme` en el elemento raíz la sobreescribe en
-ambas direcciones.
+**Movimiento.** Entrada escalonada en la portada, revelado de tarjetas por
+`IntersectionObserver`, cinta corrediza y rayos de feria en rotación lenta.
+Todo se apaga con `prefers-reduced-motion`.
+
+## El menú
+
+Los trece renglones y sus precios están transcritos de la foto del menú
+impreso del kiosco. Todos los precios van **antes de IVU**.
+
+### Pendiente de confirmar con el negocio
+
+Tres cosas quedaron sin verificar y están marcadas con comentarios en
+`index.html`:
+
+1. **Piragua** y **café** traen dos precios cada uno en el menú impreso, sin
+   decir a qué tamaño corresponde cada cual. La página lista los dos sin
+   asumir.
+2. Los añadidos de nachos (bacón, queso extra) están impresos con signo de
+   **euro** (`.93€`). Se asumió `$0.93`.
+3. El precio de la **piña colada** estaba parcialmente tapado por un reflejo
+   en la foto. Se leyó como `$6.00`.
+
+También falta el **horario**, que aparece marcado como tal en la sección
+*Dónde estamos*.
+
+### Sobre el nombre
+
+Hay tres grafías en circulación: el rótulo del kiosco dice **SweetLand**, el
+menú impreso dice **SWEELAND** y el logotipo propuesto dice **SWEET LAND**.
+El sitio usa `SweetLand`, que es lo que dice la rotulación. Si se quiere
+unificar, el logotipo hay que re-letrarlo.
 
 ## Ver en local
 
@@ -42,14 +70,14 @@ ambas direcciones.
 python3 -m http.server 4173
 ```
 
-Luego abrir <http://localhost:4173>.
+## Notas
 
-## Pendiente
+El logotipo es un **PNG generado** para la propuesta de revamp. Antes de
+usarlo en rotulación o impresión hay que vectorizarlo.
 
-Los campos marcados **Por confirmar** en la sección *Visítanos* son
-marcadores de posición: días de carrera, horario y teléfono esperan los
-datos reales del negocio.
+El bodegón de producto (`comida.jpg`) también es generado. Muestra los
+productos reales del menú, pero no es una foto del kiosco: conviene
+sustituirlo por fotografía real cuando la haya.
 
-Los assets de marca son generados para propuesta — sirven para presentar la
-dirección visual, no como arte final de producción. El logotipo necesita
-vectorizarse antes de cualquier uso impreso o de rotulación.
+Las fotos del kiosco son reales y muestran clientes de espaldas, sin caras
+identificables.
