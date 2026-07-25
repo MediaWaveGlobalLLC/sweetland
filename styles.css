@@ -170,6 +170,7 @@ h1, h2, h3 {
 }
 .barra__nav a {
   text-decoration: none; padding: var(--s1) 0;
+  white-space: nowrap;
   transition: color .18s var(--paso);
 }
 .barra__nav a:hover { color: var(--magenta); }
@@ -355,12 +356,16 @@ h1, h2, h3 {
   border: 3px solid var(--tinta);
   border-radius: var(--r-md);
   box-shadow: 0 5px 0 var(--sombra-dura);
-  opacity: 0; transform: translateY(18px);
   transition: opacity .5s var(--paso), transform .5s var(--paso),
               box-shadow .18s var(--paso), rotate .18s var(--brinco);
 }
-.fila.visible { opacity: 1; transform: none; }
 .fila:hover { box-shadow: 0 9px 0 var(--sombra-dura); rotate: -.5deg; }
+
+/* El menú es el contenido, no un adorno: se ve siempre. Solo se esconde
+   para animarlo cuando el script confirma que puede revelarlo. Si el JS
+   falla o no corre, las trece tarjetas siguen ahí. */
+.revelar .fila { opacity: 0; transform: translateY(18px); }
+.revelar .fila.visible { opacity: 1; transform: none; }
 
 /* Los números se turnan los tres colores del kiosco. */
 .fila__num {

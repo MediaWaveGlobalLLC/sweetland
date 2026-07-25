@@ -29,7 +29,7 @@
   </a>
   <nav class="barra__nav" aria-label="Principal">
     <a href="#menu">Menú</a>
-    <a href="#visitanos">Dónde estamos</a>
+    <a href="#visitanos">Llegar</a>
   </nav>
   <a class="wa wa--chico" href="https://wa.me/17877770122" rel="noopener">
     <svg viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="m187.58 144.84l-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40a88.1 88.1 0 0 0 88 88a40 40 0 0 0 40-40a8 8 0 0 0-4.42-7.16M152 176a72.08 72.08 0 0 1-72-72a24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51a56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74l23 11.48A24 24 0 0 1 152 176M128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24m0 192a87.87 87.87 0 0 1-44.06-11.81a8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216"/></svg>
@@ -291,15 +291,21 @@
 </footer>
 
 <script>
-  // Revelado al hacer scroll. Si el sistema pide menos movimiento,
-  // se muestra todo de una vez y no se observa nada.
+  // Revelado al hacer scroll.
+  //
+  // Las tarjetas se ven por defecto. Solo se esconden si aquí confirmamos
+  // que hay IntersectionObserver y que el sistema no pidió menos
+  // movimiento: la clase .revelar es lo que activa el opacity 0 del CSS.
+  // Así el menú nunca depende de que este script corra.
   (function () {
-    var quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!('IntersectionObserver' in window)) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     var filas = document.querySelectorAll('[data-ver]');
-    if (quieto || !('IntersectionObserver' in window)) {
-      filas.forEach(function (f) { f.classList.add('visible'); });
-      return;
-    }
+    if (!filas.length) return;
+
+    document.documentElement.classList.add('revelar');
+
     var ojo = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (e, i) {
         if (!e.isIntersecting) return;
@@ -307,8 +313,18 @@
         e.target.classList.add('visible');
         ojo.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: .15 });
+    }, { rootMargin: '0px 0px -5% 0px', threshold: .05 });
+
     filas.forEach(function (f) { ojo.observe(f); });
+
+    // Red de seguridad: si por lo que sea el observer no reveló nada
+    // (saltos de ancla, restauración de scroll, pestaña en segundo plano),
+    // se muestra todo y se desiste de la animación.
+    setTimeout(function () {
+      if (!document.querySelector('.fila.visible')) {
+        document.documentElement.classList.remove('revelar');
+      }
+    }, 1500);
   })();
 </script>
 
